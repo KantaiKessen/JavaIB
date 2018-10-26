@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=bumper\ ball
+comment0.target=void\ collide(Bumper,\ Ball)
+comment1.params=bumper\ ball
+comment1.target=void\ findImpactPoint(Bumper,\ Ball)
+comment2.params=x\ y\ b
+comment2.target=void\ updateIfCloser(int,\ int,\ Ball)
+comment3.params=x1\ y1\ x2\ y2
+comment3.target=double\ distance(double,\ double,\ double,\ double)
+numComments=4
