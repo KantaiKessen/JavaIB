@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=PrizePanel
+comment0.text=\r\n\ The\ prize\ panel\ class\ is\ a\ type\ of\ JFrame.\ It\ will\ be\ able\ to\ make\ a\ ball\ and\ a\ polkadot\ \r\n\ appear.\ The\ ball\ will\ move\ in\ a\ random\ speed\ and\ direction.\ Every\ time\ the\ polkadot\ \r\n\ touches\ the\ ball,\ a\ counter\ in\ the\ top\ right\ corner\ of\ the\ panel\ will\ increase\ by\ 1.\ \r\n\ <p>\r\n\ The\ panel\ also\ has\ mouse\ capablities.\ When\ left\ clicked,\ the\ polkadot\ will\ move\ to\ the\ \r\n\ mouse.\ When\ right\ clicked,\ the\ ball\ will\ move\ to\ the\ mouse.\ When\ shift\ and\ left\ click\r\n\ are\ pressed,\ the\ ball\ will\ move\ in\ a\ random\ direction\ and\ speed.\r\n\ \r\n\ @author\ Nick\ He\r\n\ @author\ Kevin\ Liu\r\n\ @version\ 10-29-18\r\n\ @period\ 3\r\n\ @teacher\ Coglianese\r\n
+comment1.params=
+comment1.target=PrizePanel()
+comment1.text=\r\n\ This\ is\ the\ constructor\ for\ the\ prize\ panel.\ It\ will\ create\ the\ ball\ and\ polkadot,\ start\r\n\ a\ timer,\ add\ a\ mouse\ listener,\ and\ initialize\ some\ variables.\r\n
+comment2.params=g
+comment2.target=void\ paintComponent(java.awt.Graphics)
+comment2.text=\r\n\ Allows\ the\ buffer\ to\ replace\ the\ current\ image\r\n
+comment3.params=ballIn\ pDot
+comment3.target=void\ collide(Ball,\ Polkadot)
+comment3.text=\r\n\ Method\ that\ will\ increae\ the\ counter\ when\ the\ ball\ and\ polkadot\ touch\r\n\ \r\n\ @param\ ballIn\ gives\ the\ Ball\r\n\ @param\ pDot\ \ \ gives\ the\ polkadot\r\n
+comment4.params=x1\ y1\ x2\ y2
+comment4.target=double\ distance(double,\ double,\ double,\ double)
+comment4.text=\r\n\ Will\ determine\ the\ distance\ between\ two\ coordinates\r\n\ \r\n\ @param\ x1\ \ x\ value\ of\ the\ first\ coordinate\r\n\ @param\ y1\ \ y\ value\ of\ the\ first\ coordinate\r\n\ @param\ x2\ \ x\ value\ of\ the\ second\ coordinate\r\n\ @param\ y2\ \ y\ value\ of\ the\ second\ coordinate\r\n\ @return\ the\ distance\ between\ the\ two\ coordinates\r\n
+numComments=5

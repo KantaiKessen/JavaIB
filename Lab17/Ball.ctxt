@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Ball
+comment0.text=\r\n\ A\ Ball\ is\ a\ polkadot\ with\ a\ mobility\ ability\ and\ a\ caroming\ effect.\ Balls\ are\ an\ extension\ \r\n\ of\ polka\ dots,\ which\ cannot\ move\ in\ the\ same\ way\ that\ Balls\ can.\r\n\ \r\n\ @author\ \ Kevin\ Liu\r\n\ @author\ \ Nick\ He\r\n\ @version\ 1.0.0\r\n\ @period\ \ 3\r\n
+comment1.params=
+comment1.target=Ball()
+comment1.text=\r\n\ Constructor\ for\ balls\ without\ specified\ positions,\ colors,\ etc.\r\n
+comment2.params=x\ y\ diam\ c
+comment2.target=Ball(double,\ double,\ double,\ java.awt.Color)
+comment2.text=\ \r\n\ Constructor\ for\ balls\ with\ some\ characteristics\ specified\ by\ the\ user\r\n
+comment3.params=x
+comment3.target=void\ setdx(double)
+comment3.text=\r\n\ Method\ that\ will\ set\ the\ x\ val.\r\n
+comment4.params=y
+comment4.target=void\ setdy(double)
+comment4.text=\r\n\ Method\ that\ will\ set\ the\ y\ val.\r\n
+comment5.params=
+comment5.target=double\ getdx()
+comment5.text=\r\n\ Method\ that\ will\ get\ the\ x\ val.\r\n
+comment6.params=
+comment6.target=double\ getdy()
+comment6.text=\r\n\ Method\ that\ will\ get\ the\ y\ val.\r\n
+comment7.params=rightEdge\ bottomEdge
+comment7.target=void\ move(double,\ double)
+comment7.text=\r\n\ This\ is\ the\ method\ that\ will\ allow\ the\ ball\ to\ move.\ When\ coming\ in\ contact\ with\ \r\n\ set\ boundaries,\ the\ ball\ will\ bounce\ and\ start\ travelling\ away\ from\ the\ boundary.\r\n
+numComments=8
