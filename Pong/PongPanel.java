@@ -3,22 +3,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyAdapter;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.image.BufferedImage;
 /**
- * The pong panel class is a type of JFrame. It will be able to make two bumpers and a polkadot 
- * appear. The ball will move in a random speed and direction. Every time the polkadot 
- * touches the ball, a counter in the top right corner of the panel will increase by 1. 
- * <p>
- * The panel also has mouse capablities. When left clicked, the polkadot will move to the 
- * mouse. When right clicked, the ball will move to the mouse. When shift and left click
- * are pressed, the ball will move in a random direction and speed.
- * 
- * @author Nick He
+ * The PongPanel provides a Pong emulation for a JFrame 400 by 400 pixels.
+ * The PongPanel uses MouseEvents and KeyEvents to move the two "Paddles".
+ * The "Paddles" consist of two bumpers each 40 pixels tall and 5 pixels wide.
+ * They are moved by draggin the mouse for the right one and "W" and "S" for the left.
+ * A Ball moves at 1 pixel per second up/down and left/right.
+ * Scoring is provided on the two uper corners.
  * @author Kevin Liu
- * @version 10-29-18
- * @period 3
- * @teacher Coglianese
+ * @version 0.1.010
  */
 public class PongPanel extends JPanel
 {
@@ -31,8 +28,8 @@ public class PongPanel extends JPanel
     private Timer myTimer; 
     private int scoreOne, scoreTwo = 0;
     /**
-     * This is the constructor for the prize panel. It will create the ball and polkadot, start
-     * a timer, add a mouse listener, and initialize some variables.
+     * The constructor for PongPanel. It will create the ball and two bumpers, start
+     * a timer, add a mouse listener, add a key listener, and initialize some variables.
      */   
     public PongPanel()
     {
@@ -43,10 +40,13 @@ public class PongPanel extends JPanel
         pBall = new Ball(200,200,8,Color.WHITE);
         pBall.setdx(-1);
         pBall.setdy(-1);
-        bumperOne = new Bumper(20, 200, 5, 30, Color.WHITE);
+        bumperOne = new Bumper(360, 200, 5, 30, Color.WHITE);
+        bumperTwo = new Bumper(20, 200, 5, 30, Color.WHITE);
         myTimer = new Timer(5, new Listener());
         myTimer.start();
         addMouseMotionListener(new Mouse());
+        addKeyListener(new Key());
+        setFocusable(true);
     }
 
     /**
@@ -58,10 +58,10 @@ public class PongPanel extends JPanel
     }
 
     /**
-     * Method that will increae the counter when the ball and polkadot touch
+     * Method that allows the paddles to reverse the travel of the ball.
      *
-     * @param bumper gives the Bumper
-     * @param pBall   gives the ball
+     * @param bumper    gives the Bumper
+     * @param pBall     gives the ball
      */
     private void collide(Bumper bumper, Ball pBall)
     {
@@ -74,17 +74,31 @@ public class PongPanel extends JPanel
     private class Mouse extends MouseMotionAdapter
     {
         /**
-         * This method dictates what will happen when mouse input is detected. If
-         *  When left clicked, the polkadot will move to the
-         *  mouse. When right clicked, the ball will move to the mouse. When shift and
-         *  left click are pressed, the ball will move in a random direction and speed.
+         *  This method dictates what will happen when mouse input is detected. If
+         *  When left clicked, the right paddle will be at the y coordinate of the mouse. The x coord will remain the same.
          *
-         *  @param e allows the method to detect what type of input has occured.
+         *  @param e    required event listener
          */
         public void mouseDragged(MouseEvent e)
         {
             bumperOne.setY(e.getY());
         }
+    }
+    private class Key extends KeyAdapter
+    {
+        /**
+         * This method dictates what will happen when key input is detected. If
+         * When W is pressed, the left paddle move up 5 pixels. S will move the paddle down 5 pixels. The x coord will remain the same.
+         * 
+         * @param e     required event listener
+         */
+        public void keyPressed(KeyEvent e){
+            if(e.getKeyCode() == KeyEvent.VK_W)
+                bumperTwo.setY(bumperTwo.getY()-5);
+            if(e.getKeyCode() == KeyEvent.VK_S)
+                bumperTwo.setY(bumperTwo.getY()+5);
+        }
+        
     }
 
     private class Listener implements ActionListener
@@ -93,15 +107,21 @@ public class PongPanel extends JPanel
         {
             myBuffer.setColor(BACKGROUND);
             myBuffer.fillRect(0, 0, FRAME, FRAME);
+            if(pBall.getX() <= 8)
+                scoreTwo++;
+            if(pBall.getX() >=392)
+                scoreOne++;
             collide(bumperOne, pBall);
+            collide(bumperTwo, pBall);
             pBall.move(400,400);
             pBall.draw(myBuffer);
             bumperOne.draw(myBuffer);
-            myBuffer.setColor(Color.BLACK);
-            myBuffer.setFont(new Font("Monospaced", Font.BOLD, 24));
-            myBuffer.drawString("Score: " + scoreOne, FRAME + 150, 25);
+            bumperTwo.draw(myBuffer);
+            myBuffer.setColor(Color.WHITE);
+            myBuffer.setFont(new Font("Monospaced", Font.BOLD, 10));
+            myBuffer.drawString("Score: " + scoreOne/9, 0, 25);
+            myBuffer.drawString("Score: " + scoreTwo/9, FRAME-100, 25);
             repaint();
-
         }
     }
 
