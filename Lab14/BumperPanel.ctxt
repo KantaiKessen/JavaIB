@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=BumperPanel()
+comment1.params=g
+comment1.target=void\ paintComponent(java.awt.Graphics)
+comment2.params=b\ p
+comment2.target=void\ collide(Ball,\ Polkadot)
+comment3.params=x1\ y1\ x2\ y2
+comment3.target=double\ distance(double,\ double,\ double,\ double)
+numComments=4
