@@ -1,5 +1,3 @@
-package Pong;
-
 import java.awt.Color;
 /**
  * A Ball is a polkadot with a mobility ability and a caroming effect. Balls are an extension 

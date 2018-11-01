@@ -1,5 +1,3 @@
-package Pong;
-
 // Billington.  email: mlbillington@fcps.edu
 // version: 7.25.2007
 // updated by Phil Ero 16NOV07
