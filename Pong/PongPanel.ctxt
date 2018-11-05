@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=
-comment0.target=PongPanel()
-comment0.text=\r\n\ The\ constructor\ for\ PongPanel.\ It\ will\ create\ the\ ball\ and\ two\ bumpers,\ start\r\n\ a\ timer,\ add\ a\ mouse\ listener,\ add\ a\ key\ listener,\ and\ initialize\ some\ variables.\r\n
-comment1.params=g
-comment1.target=void\ paintComponent(java.awt.Graphics)
-comment1.text=\r\n\ Allows\ the\ buffer\ to\ replace\ the\ current\ image\r\n
-numComments=2

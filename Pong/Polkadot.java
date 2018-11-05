@@ -34,7 +34,11 @@
          myRadius = myDiameter/2;
       }
       /**
-       * Constructor if location, diameterm and color of the polka dot are specified by the user. 
+       * Constructor if location, diameterm and color of the polka dot are specified by the user.
+       * @param x       X position of polkadot relative to top left corner
+       * @param y       Y Position of polkadot relative to top left corner
+       * @param d       Diameter of polkadot
+       * @param c       Color of Polkadot
        */
       public Polkadot(double x, double y, double d, Color c)
       {
