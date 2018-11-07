@@ -30,8 +30,8 @@ public class PrizePanel extends JPanel
         int yPos = (int)(Math.random()*(FRAME-100)+ 50);
         myBall = new Ball(xPos, yPos, 50, Color.BLACK);
         myPDots = new Polkadot[50]; 
-        for(Polkadot x : myPDots){
-            x = new Polkadot((int)(Math.random()*(FRAME-100) + 50), 
+        for(int i = 0; i < 50; i++){
+            myPDots[i] = new Polkadot((int)(Math.random()*(FRAME-100) + 50), 
             (int)(Math.random()*(FRAME-100) + 50), 25, Color.RED);
         }
         myTimer = new Timer(5, new Listener());
@@ -50,9 +50,11 @@ public class PrizePanel extends JPanel
             myBuffer.setColor(BACKGROUND);
             myBuffer.fillRect(0, 0, FRAME, FRAME);
             myBall.move(FRAME, FRAME);
-            collide(myBall, myPDots);
+            for(Polkadot p : myPDots)
+                collide(myBall, p);
             myBall.draw(myBuffer);
-            myPDot.draw(myBuffer);
+            for(Polkadot p : myPDots)
+                p.draw(myBuffer);
             myBuffer.setColor(Color.BLACK);
             myBuffer.setFont(new Font("Monospaced", Font.BOLD, 24));
             myBuffer.drawString("Count: " + hits, FRAME - 150, 25);
@@ -60,15 +62,15 @@ public class PrizePanel extends JPanel
             
         }
     }   
-    private void collide(Ball ballIn, Polkadot[] pDot)
+    private void collide(Ball ballIn, Polkadot p)
     {
-        for(Polkadot p : pDot){
-            double d = distance(ballIn.getX(), ballIn.getY(), pDot.getX(), pDot.getY() );  
-            if (d<= ballIn.getDiameter()/2 + pDot.getRadius())
+            double d = distance(ballIn.getX(), ballIn.getY(), p.getX(), p.getY() );  
+            if (d<= ballIn.getDiameter()/2 + p.getRadius())
             {
                 hits++;
+                p.setX((int)(Math.random()*(FRAME-100) + 50));
+                p.setY((int)(Math.random()*(FRAME-100) + 50));
             }
-        }
     }
 
     private double distance(double x1, double y1, double x2, double y2)
