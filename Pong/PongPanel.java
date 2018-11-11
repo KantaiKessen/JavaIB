@@ -94,9 +94,9 @@ public class PongPanel extends JPanel
          */
         public void keyPressed(KeyEvent e){
             if(e.getKeyCode() == KeyEvent.VK_W)
-                bumperTwo.setY(bumperTwo.getY()-5);
+                bumperTwo.setY(bumperTwo.getY()-10);
             if(e.getKeyCode() == KeyEvent.VK_S)
-                bumperTwo.setY(bumperTwo.getY()+5);
+                bumperTwo.setY(bumperTwo.getY()+10);
         }
         
     }
@@ -111,6 +111,9 @@ public class PongPanel extends JPanel
                 scoreTwo++;
             if(pBall.getX() >=392)
                 scoreOne++;
+            if(scoreOne/9 > 10 || scoreTwo/9 > 10){
+                System.exit(0);
+            }
             collide(bumperOne, pBall);
             collide(bumperTwo, pBall);
             pBall.move(400,400);
